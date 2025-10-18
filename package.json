@@ -1,0 +1,38 @@
+{
+    "name": "polygon-board",
+    "version": "1.0.0",
+    "description": "Optional.",
+    "homepage": "https://github.com/pheihuihui/polygon-board#readme",
+    "bugs": {
+        "url": "https://github.com/pheihuihui/polygon-board/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pheihuihui/polygon-board.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "build": "node build.js",
+        "dev": "node build.js --watch",
+        "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@chakra-ui/react": "^3.27.1",
+        "@polygon.io/client-js": "^8.2.0",
+        "esbuild": "^0.25.11",
+        "prettier": "^3.6.2",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "react-icons": "^5.5.0"
+    },
+    "devDependencies": {
+        "@types/node": "^24.8.1",
+        "@types/react": "^19.2.2",
+        "@types/react-dom": "^19.2.2",
+        "sass": "^1.93.2"
+    }
+}
