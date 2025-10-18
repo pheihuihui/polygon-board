@@ -1,0 +1,53 @@
+@use 'sass:list';
+@use 'sass:color';
+
+$font-stack: Helvetica, Arial;
+$primary-color: #333;
+
+body {
+    $font-stack: list.append($font-stack, sans-serif);
+    font: $font-stack;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: $primary-color;
+
+    &:hover {
+        color: color.scale($primary-color, $lightness: 20%);
+    }
+}
+
+/* Custom Scrollbar Styling - Enhanced */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4a5568 0%, #3a4558 100%);
+    border-radius: 10px;
+    border: 2px solid #1a202c;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #718096 0%, #5a6178 100%);
+    border-color: #2d3748;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, #a0aec0 0%, #8091a8 100%);
+}
+
+/* Firefox scrollbar styling */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4a5568 transparent;
+}

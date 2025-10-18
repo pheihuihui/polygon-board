@@ -1,5 +1,6 @@
 import esbuild, { BuildOptions } from 'esbuild';
-import { cpSync } from 'fs';
+import fs from 'fs';
+import sass from 'sass';
 
 const isWatch = process.argv.includes('--watch');
 
@@ -20,16 +21,8 @@ const buildOptions: BuildOptions = {
     minify: false,
 };
 
-cpSync('resources/index.html', 'dist/index.html', { recursive: true });
-
-if (isWatch) {
-    esbuild
-        .context(buildOptions)
-        .then(context => {
-            context.watch();
-            console.log('Watching for changes...');
-        })
-        .catch(() => process.exit(1));
-} else {
-    esbuild.build(buildOptions).catch(() => process.exit(1));
-}
+fs.cpSync('resources/index.html', 'dist/index.html', { recursive: true });
+fs.cpSync('resources/favicon.ico', 'dist/favicon.ico', { recursive: true });
+const cssres = sass.compile('src/style/global.scss');
+fs.writeFileSync('dist/index.css', cssres.css);
+esbuild.buildSync(buildOptions);
